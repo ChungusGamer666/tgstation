@@ -166,7 +166,7 @@
 
 	// Normal attackby updates click cooldown, so we have to make up for it
 	if (result != SECONDARY_ATTACK_CALL_NORMAL)
-		if(weapon.secondary_attack_speed)
+		if(!isnull(weapon.secondary_attack_speed))
 			user.changeNext_move(weapon.secondary_attack_speed)
 		else
 			user.changeNext_move(weapon.attack_speed)
@@ -181,7 +181,7 @@
  * * mob/living/user - The mob hitting with this item
  * * params - Click params of this attack
  */
-/obj/item/proc/attack(mob/living/target_mob, mob/living/user, params)
+/obj/item/proc/attack_living(mob/living/target_mob, mob/living/user, params)
 	var/signal_return = SEND_SIGNAL(src, COMSIG_ITEM_ATTACK, target_mob, user, params)
 	if(signal_return & COMPONENT_CANCEL_ATTACK_CHAIN)
 		return TRUE

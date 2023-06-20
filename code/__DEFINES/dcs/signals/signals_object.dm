@@ -132,8 +132,6 @@
 	/// Return to prevent the default behavior (attack_selfing) from ocurring.
 	#define COMPONENT_ACTION_HANDLED (1<<0)
 
-///from base of mob/living/carbon/attacked_by(): (mob/living/carbon/target, mob/living/user, hit_zone)
-#define COMSIG_ITEM_ATTACK_ZONE "item_attack_zone"
 ///from base of obj/item/hit_reaction(): (owner, hitby, attack_text, final_block_chance, damage, attack_type, damage_type)
 #define COMSIG_ITEM_HIT_REACT "item_hit_react"
 	#define COMPONENT_HIT_REACTION_BLOCK (1<<0)
@@ -385,20 +383,23 @@
 	/// Prevents click from happening.
 	#define COMPONENT_CANCEL_EQUIPMENT_CLICK (1<<0)
 
-#define COMSIG_ITEM_ATTACK "item_attack"
 ///from base of obj/item/attack_self(): (/mob)
 #define COMSIG_ITEM_ATTACK_SELF "item_attack_self"
-//from base of obj/item/attack_self_secondary(): (/mob)
+///from base of obj/item/attack_self_secondary(): (/mob)
 #define COMSIG_ITEM_ATTACK_SELF_SECONDARY "item_attack_self_secondary"
-///from base of obj/item/attack_atom(): (/atom, /mob)
-#define COMSIG_ITEM_ATTACK_ATOM "item_attack_atom"
 ///from base of obj/item/pre_attack(): (atom/target, mob/user, params)
 #define COMSIG_ITEM_PRE_ATTACK "item_pre_attack"
-/// From base of [/obj/item/proc/pre_attack_secondary()]: (atom/target, mob/user, params)
+///from base of [/obj/item/proc/pre_attack_secondary()]: (atom/target, mob/user, params)
 #define COMSIG_ITEM_PRE_ATTACK_SECONDARY "item_pre_attack_secondary"
 	#define COMPONENT_SECONDARY_CANCEL_ATTACK_CHAIN (1<<0)
 	#define COMPONENT_SECONDARY_CONTINUE_ATTACK_CHAIN (1<<1)
 	#define COMPONENT_SECONDARY_CALL_NORMAL_ATTACK_CHAIN (1<<2)
+///from base of obj/item/attack_atom(): (/atom, /mob)
+#define COMSIG_ITEM_ATTACK_ATOM "item_attack_atom"
+///from base of obj/item/attack_living(): (mob/living/target, mob/living/user, params)
+#define COMSIG_ITEM_ATTACK_LIVING "item_attack"
+///from base of mob/living/carbon/attacked_by(): (obj/item/attacking_item, mob/living/user)
+#define COMSIG_ITEM_ATTACK_ZONE "item_attack_zone"
 /// From base of [/obj/item/proc/attack_secondary()]: (atom/target, mob/user, params)
 #define COMSIG_ITEM_ATTACK_SECONDARY "item_pre_attack_secondary"
 ///from base of obj/item/afterattack(): (atom/target, mob/user, proximity_flag, click_parameters)
